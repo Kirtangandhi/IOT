@@ -1,13 +1,13 @@
 
-#include<WiFiClient.h>
-
-#include <ArduinoJson.h>
-String URL="http://api.thingspeak.com/update?api_key=PB4J7UVO5MXE3JZJ&field1=";
-const int trig=5;
-const int echo=4;
+#include<WiFiClient.h>    // wifi library
+#include <ArduinoJson.h>    //Arduino json library
+String URL="http://api.thingspeak.com/update?api_key=PB4J7UVO5MXE3JZJ&field1=";   //thinkspeak read api 
+const int trig=5;      // pin 5
+const int echo=4;      // pin 4 
 long duration=0;
 int distance=0;
-void setup() {
+void setup() 
+{
   // put your setup code here, to run once:
   Serial.begin(9600);
   WiFi.disconnect();
@@ -41,6 +41,6 @@ void loop() {
   String data=http.getString();
   Serial.println(data);
   http.end();
-  delay(15000);
+  delay(15000);  // update in graf 15sec
   
 }
